@@ -19,7 +19,6 @@ body, html {
   background-size: cover;
 }
 
-/* Password Overlay */
 .password-container {
   position: fixed;
   inset: 0;
@@ -80,7 +79,6 @@ body, html {
   100% {transform: translateX(0);}
 }
 
-/* Main Content */
 .main-content {
   display: none;
 }
@@ -96,7 +94,6 @@ body, html {
   box-shadow: 0 0 25px #ff66b2;
 }
 
-/* Shayari Section */
 .shayari-section {
   max-width: 700px;
   margin: auto;
@@ -121,13 +118,6 @@ body, html {
 .touch-text {
   font-size: 0.9rem;
   color: #ffe6f0;
-  animation: glow 1.5s infinite;
-}
-
-@keyframes glow {
-  0% {text-shadow: 0 0 5px #ff66b2;}
-  50% {text-shadow: 0 0 20px #ff66b2;}
-  100% {text-shadow: 0 0 5px #ff66b2;}
 }
 
 .shayari-gif {
@@ -146,7 +136,6 @@ body, html {
   text-shadow: 0 0 15px #ff66b2;
 }
 
-/* Emoji Rain */
 .emoji {
   position: fixed;
   top: -30px;
@@ -161,10 +150,9 @@ body, html {
 </head>
 <body>
 
-<!-- PASSWORD SCREEN -->
 <div class="password-container" id="passwordContainer">
   <h1>Happy Kiss Day Cutie 💋</h1>
-  <p><strong> Your DateMonth + My DateMonth</strong></p>
+  <p><strong>Your DateMonth + My DateMonth</strong></p>
   <p>Only we know this password 😎</p>
 
   <input type="password" id="password" maxlength="6" placeholder="Enter 6 digit password">
@@ -172,7 +160,6 @@ body, html {
   <div class="error" id="errorMsg"></div>
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="main-content" id="mainContent">
 
   <div class="header">
@@ -184,44 +171,45 @@ body, html {
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">Har din aapse pyaar krta hu, aur har din thoda thoda badhta ja raha hai ✨💞</div>
-      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="touch-text">Touch for gf🫵🏻</div>
       <img src="shayari1.gif" class="shayari-gif">
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">Bas Aap, Aapki Khushi aur ek pyaar sa kiss... aur kuch nhi chahiye ❤️</div>
-      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="touch-text">Touch for gf</div>
       <img src="shayari2.gif" class="shayari-gif">
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">Kiss Day ke din, Aapki Happiness hi mera pura world hai 🌎🌍</div>
-      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="touch-text">Touch for gf🫵🏻</div>
       <img src="shayari3.gif" class="shayari-gif">
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">Pyaar ka proposal, ek pyara sa kiss ke saath 😘</div>
-      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="touch-text">Touch for gf🫵🏻</div>
       <img src="shayari4.gif" class="shayari-gif">
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">Mere bas yahi dua, Aap hamesha khush rahe ☺️</div>
-      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="touch-text">Touch for gf🫵🏻</div>
       <img src="shayari5.gif" class="shayari-gif">
     </div>
 
   </div>
 
   <div class="end-message">
-    I ❤️ YOU BUBU 😘
+    I❤️YOU BUBU 😘
   </div>
 
 </div>
 
 <script>
 let tries = 0;
+let openGif = null;
 
 function checkPassword() {
   const input = document.getElementById("password").value;
@@ -237,8 +225,14 @@ function checkPassword() {
   }
 
   if(input === "134285"){
-    container.style.display = "none";
-    mainContent.style.display = "block";
+    errorMsg.style.color = "#00ffcc";
+    errorMsg.textContent = "Awww Aapko yaad hai 😘😘";
+
+    setTimeout(()=>{
+      container.style.display = "none";
+      mainContent.style.display = "block";
+    },1500);
+
   } else {
     tries++;
     container.classList.add("shake");
@@ -260,7 +254,7 @@ function checkPassword() {
       errorMsg.textContent = "Sach me aap bhul gaye 😖😯😭";
     }
   }
-  }
+}
 
 function toggleGif(container){
   const gif = container.querySelector(".shayari-gif");
@@ -271,7 +265,6 @@ function toggleGif(container){
   openGif = gif.style.display === "block" ? gif : null;
 }
 
-/* Emoji Rain */
 const emojis = ["💖","😘","💋","😍"];
 setInterval(()=>{
   const e = document.createElement("div");
@@ -285,4 +278,4 @@ setInterval(()=>{
 </script>
 
 </body>
-</html>
+  </html>
