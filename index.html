@@ -112,23 +112,33 @@
     100% { transform: translateY(100vh); opacity: 0; }
   }
 
-  /* Shayari section (always visible) */
+  /* Shayari section */
   .shayari-section {
     padding: 50px 20px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
     max-width: 700px;
     margin: auto;
   }
 
-  .shayari {
+  .shayari-container {
+    text-align: center;
     background: rgba(255,255,255,0.1);
     padding: 20px;
     border-radius: 15px;
-    font-size: 1.2rem;
-    text-align: center;
     backdrop-filter: blur(5px);
+  }
+
+  .shayari-text {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .shayari-container img {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
   }
 
 </style>
@@ -153,11 +163,32 @@
   </div>
 
   <div class="shayari-section">
-    <div class="shayari">"Tere honthon ki khamoshi, meri dhadkan ka raaz hai."</div>
-    <div class="shayari">"Ek chhota sa kiss, dil ke har kone ko choo jaye."</div>
-    <div class="shayari">"Kiss Day ke din, tumhari muskaan meri duniya hai."</div>
-    <div class="shayari">"Pyaar ka izhaar, ek pyara sa kiss ke saath."</div>
-    <div class="shayari">"Tere labon pe bas yahi dua, hamesha khush rahe tu."</div>
+
+    <div class="shayari-container">
+      <div class="shayari-text">"Tere honthon ki khamoshi, meri dhadkan ka raaz hai."</div>
+      <img src="shayari1.gif" alt="Shayari GIF 1">
+    </div>
+
+    <div class="shayari-container">
+      <div class="shayari-text">"Ek chhota sa kiss, dil ke har kone ko choo jaye."</div>
+      <img src="shayari2.gif" alt="Shayari GIF 2">
+    </div>
+
+    <div class="shayari-container">
+      <div class="shayari-text">"Kiss Day ke din, tumhari muskaan meri duniya hai."</div>
+      <img src="shayari3.gif" alt="Shayari GIF 3">
+    </div>
+
+    <div class="shayari-container">
+      <div class="shayari-text">"Pyaar ka izhaar, ek pyara sa kiss ke saath."</div>
+      <img src="shayari4.gif" alt="Shayari GIF 4">
+    </div>
+
+    <div class="shayari-container">
+      <div class="shayari-text">"Tere labon pe bas yahi dua, hamesha khush rahe tu."</div>
+      <img src="shayari5.gif" alt="Shayari GIF 5">
+    </div>
+
   </div>
 </div>
 
