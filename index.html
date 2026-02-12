@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Kiss Day 💋</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    height: 100%;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* Password overlay */
+  .password-container {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    text-align: center;
+  }
+
+  .password-container h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffe6f0;
+  }
+
+  .password-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #fff0f5;
+  }
+
+  .password-container input[type="password"] {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    width: 200px;
+    text-align: center;
+  }
+
+  .password-container button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: #ff66b2;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .password-container button:hover {
+    background: #ff3385;
+  }
+
+  .error {
+    color: #ffdddd;
+    font-weight: bold;
+  }
+
+  /* Main content hidden initially */
+  .main-content {
+    display: none;
+    padding-bottom: 50px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 50px 20px 30px 20px;
+  }
+
+  .header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffe6f0;
+  }
+
+  .header img {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #fff;
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: url('heart.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    animation: float 4s linear infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) scale(0.8); opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-800px) scale(1.2); opacity: 0; }
+  }
+
+  /* Shayari section (always visible) */
+  .shayari-section {
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .shayari {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Password overlay -->
+<div class="password-container" id="passwordContainer">
+  <h1>Happy Kiss Day Cutie 💋</h1>
+  <p>Your password is <strong>134285</strong></p>
+  <input type="password" id="password" placeholder="Enter password">
+  <br>
+  <button onclick="checkPassword()">Unlock</button>
+  <div class="error" id="errorMsg"></div>
+</div>
+
+<!-- Main content -->
+<div class="main-content" id="mainContent">
+  <div class="header">
+    <h1>Happy Kiss Day 💋</h1>
+    <img src="kiss.gif" alt="Kiss GIF">
+  </div>
+
+  <div class="shayari-section">
+    <div class="shayari">"Tere honthon ki khamoshi, meri dhadkan ka raaz hai."</div>
+    <div class="shayari">"Ek chhota sa kiss, dil ke har kone ko choo jaye."</div>
+    <div class="shayari">"Kiss Day ke din, tumhari muskaan meri duniya hai."</div>
+    <div class="shayari">"Pyaar ka izhaar, ek pyara sa kiss ke saath."</div>
+    <div class="shayari">"Tere labon pe bas yahi dua, hamesha khush rahe tu."</div>
+  </div>
+</div>
+
+<script>
+  // Password check
+  function checkPassword() {
+    const input = document.getElementById('password').value;
+    const errorMsg = document.getElementById('errorMsg');
+    const container = document.getElementById('passwordContainer');
+    const mainContent = document.getElementById('mainContent');
+
+    if(input === "134285") {
+      container.style.display = "none";
+      mainContent.style.display = "block";
+      window.scrollTo(0,0);
+    } else {
+      errorMsg.textContent = "Wrong password! Try again 💔";
+    }
+  }
+
+  // Floating hearts
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.width = 20 + Math.random() * 30 + 'px';
+    heart.style.height = heart.style.width;
+    heart.style.animationDuration = 3 + Math.random() * 3 + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+  }
+  setInterval(createHeart, 500);
+</script>
+
+</body>
+  </html>
