@@ -4,218 +4,218 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Kiss Day 💋</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    overflow-x: hidden;
-    height: 100%;
-    background: url('background.gif') no-repeat center center fixed;
-    background-size: cover;
-  }
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  height: 100%;
+  background: url('background.gif') no-repeat center center fixed;
+  background-size: cover;
+}
 
-  /* SCREEN SHAKE */
-  @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    50% { transform: translateX(10px); }
-    75% { transform: translateX(-10px); }
-    100% { transform: translateX(0); }
-  }
+/* Password Overlay */
+.password-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  text-align: center;
+}
 
-  .shake {
-    animation: shake 0.4s;
-  }
+.password-container h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.8rem;
+  color: #ffe6f0;
+  text-shadow: 0 0 15px #ff66b2;
+}
 
-  /* Password overlay */
-  .password-container {
-    position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 10;
-    text-align: center;
-  }
+.password-container p {
+  margin: 10px 0;
+}
 
-  .password-container h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #ffe6f0;
-    text-shadow: 2px 2px 8px #ff66b2;
-  }
+.password-container input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 200px;
+  text-align: center;
+  font-size: 1rem;
+}
 
-  .password-container p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #fff0f5;
-  }
+.password-container button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ff66b2;
+  color: white;
+  cursor: pointer;
+}
 
-  .password-container input {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 15px;
-    width: 200px;
-    text-align: center;
-  }
+.error {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ffd6e7;
+}
 
-  .password-container button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 10px;
-    background: #ff66b2;
-    color: #fff;
-    cursor: pointer;
-  }
+.shake {
+  animation: shake 0.4s;
+}
 
-  .error {
-    color: #ffdddd;
-    font-weight: bold;
-    margin-top: 10px;
-  }
+@keyframes shake {
+  0% {transform: translateX(0);}
+  25% {transform: translateX(-5px);}
+  50% {transform: translateX(5px);}
+  75% {transform: translateX(-5px);}
+  100% {transform: translateX(0);}
+}
 
-  .main-content {
-    display: none;
-    padding-bottom: 50px;
-  }
+/* Main Content */
+.main-content {
+  display: none;
+}
 
-  .header {
-    text-align: center;
-    padding: 50px 20px 30px 20px;
-  }
+.header {
+  text-align: center;
+  padding: 40px 20px;
+}
 
-  .header h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 3rem;
-    color: #ffe6f0;
-  }
+.header img {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #ff66b2;
+}
 
-  .header img {
-    width: 300px;
-    border-radius: 15px;
-    border: 3px solid #fff;
-    box-shadow: 0 0 30px #ff66b2;
-  }
+/* Shayari Section */
+.shayari-section {
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 
-  .shayari-section {
-    padding: 50px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    max-width: 700px;
-    margin: auto;
-  }
+.shayari-container {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+}
 
-  .shayari-container {
-    text-align: center;
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
-    cursor: pointer;
-  }
+.shayari-text {
+  margin-bottom: 8px;
+}
 
-  .shayari-text {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-  }
+.touch-text {
+  font-size: 0.9rem;
+  color: #ffe6f0;
+  animation: glow 1.5s infinite;
+}
 
-  .touch-text {
-    color: #ffe6f0;
-    font-weight: bold;
-    animation: pulse 1.5s infinite;
-  }
+@keyframes glow {
+  0% {text-shadow: 0 0 5px #ff66b2;}
+  50% {text-shadow: 0 0 20px #ff66b2;}
+  100% {text-shadow: 0 0 5px #ff66b2;}
+}
 
-  @keyframes pulse {
-    0% { text-shadow: 0 0 5px #ff66b2; }
-    50% { text-shadow: 0 0 20px #ff66b2; }
-    100% { text-shadow: 0 0 5px #ff66b2; }
-  }
+.shayari-gif {
+  width: 300px;
+  display: none;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #ff66b2;
+}
 
-  .shayari-gif-container img {
-    width: 300px;
-    display: none;
-    border-radius: 10px;
-    box-shadow: 0 0 30px #ff66b2;
-  }
+.end-message {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Pacifico', cursive;
+  margin: 50px 0;
+  text-shadow: 0 0 15px #ff66b2;
+}
 
-  .end-message {
-    text-align: center;
-    font-size: 2rem;
-    font-family: 'Pacifico', cursive;
-    margin-top: 50px;
-    color: #ffe6f0;
-  }
+/* Emoji Rain */
+.emoji {
+  position: fixed;
+  top: -30px;
+  font-size: 22px;
+  animation: fall linear forwards;
+}
 
+@keyframes fall {
+  to { transform: translateY(100vh); opacity: 0; }
+}
 </style>
 </head>
 <body>
 
+<!-- PASSWORD SCREEN -->
 <div class="password-container" id="passwordContainer">
   <h1>Happy Kiss Day Cutie 💋</h1>
+  <p><strong> Your DateMonth + My DateMonth</strong></p>
+  <p>Only we know this password 😎</p>
 
-  <p><strong>Your datemonth + my datemonth</strong></p>
-  <p style="font-size:14px;opacity:0.8;">Only We know this password 😎</p>
-
-  <input type="password" id="password" placeholder="Enter 6 digit password">
-  <br>
+  <input type="password" id="password" maxlength="6" placeholder="Enter 6 digit password">
   <button onclick="checkPassword()">Unlock</button>
   <div class="error" id="errorMsg"></div>
 </div>
 
+<!-- MAIN CONTENT -->
 <div class="main-content" id="mainContent">
 
   <div class="header">
     <h1>Happy Kiss Day 💋</h1>
-    <img src="kiss.gif">
+    <img src="kiss.gif" alt="Kiss GIF">
   </div>
 
   <div class="shayari-section">
 
     <div class="shayari-container" onclick="toggleGif(this)">
-      <div class="shayari-text">"Har din aapse pyaar krta hu, aur har din thoda thoda badhta ja raha hai✨💞"</div>
-      <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container"><img src="shayari1.gif"></div>
+      <div class="shayari-text">Har din aapse pyaar krta hu, aur har din thoda thoda badhta ja raha hai ✨💞</div>
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <img src="shayari1.gif" class="shayari-gif">
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
-      <div class="shayari-text">"Bas Aap, Aapki Khushi aur ek pyaar sa kiss... aur kuch nhi chahiye ❤️"</div>
-      <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container"><img src="shayari2.gif"></div>
+      <div class="shayari-text">Bas Aap, Aapki Khushi aur ek pyaar sa kiss... aur kuch nhi chahiye ❤️</div>
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <img src="shayari2.gif" class="shayari-gif">
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
-      <div class="shayari-text">"Kiss Day ke din, Aapki Happiness hi mera pura world hai 🌎🌍."</div>
-      <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container"><img src="shayari3.gif"></div>
+      <div class="shayari-text">Kiss Day ke din, Aapki Happiness hi mera pura world hai 🌎🌍</div>
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <img src="shayari3.gif" class="shayari-gif">
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
-      <div class="shayari-text">"Pyaar ka Purposal, Ek pyara sa kiss ke saath😘."</div>
-      <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container"><img src="shayari4.gif"></div>
+      <div class="shayari-text">Pyaar ka proposal, ek pyara sa kiss ke saath 😘</div>
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <img src="shayari4.gif" class="shayari-gif">
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
-      <div class="shayari-text">"Mere bas yahi dua, Aap hamesha khush rahe☺️."</div>
-      <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container"><img src="shayari5.gif"></div>
+      <div class="shayari-text">Mere bas yahi dua, Aap hamesha khush rahe ☺️</div>
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <img src="shayari5.gif" class="shayari-gif">
     </div>
 
   </div>
 
   <div class="end-message">
-    I❤️YOU BUBU😘
+    I ❤️ YOU BUBU 😘
   </div>
 
 </div>
@@ -224,12 +224,19 @@
 let tries = 0;
 
 function checkPassword() {
-  const input = document.getElementById('password').value;
-  const container = document.getElementById('passwordContainer');
-  const mainContent = document.getElementById('mainContent');
-  const errorMsg = document.getElementById('errorMsg');
+  const input = document.getElementById("password").value;
+  const container = document.getElementById("passwordContainer");
+  const mainContent = document.getElementById("mainContent");
+  const errorMsg = document.getElementById("errorMsg");
 
-  if(input === "134285") {
+  if(input.length !== 6){
+    errorMsg.textContent = "Password must be 6 digits 😤";
+    container.classList.add("shake");
+    setTimeout(()=>container.classList.remove("shake"),400);
+    return;
+  }
+
+  if(input === "134285"){
     container.style.display = "none";
     mainContent.style.display = "block";
   } else {
@@ -237,23 +244,44 @@ function checkPassword() {
     container.classList.add("shake");
     setTimeout(()=>container.classList.remove("shake"),400);
 
-    if(tries < 3){
-      errorMsg.textContent = "Wrong password! Try again 💔";
-    } else {
-      errorMsg.textContent = "Areee itna bhi nahi yaad? 😭 Last chance baby 💋";
+    if(tries === 1){
+      errorMsg.textContent = "Wrong password baby 😜 Try again 💖";
+    }
+    else if(tries === 2){
+      errorMsg.textContent = "Arey itna bhi mushkil nahi hai 😏💋";
+    }
+    else if(tries === 3){
+      errorMsg.textContent = "Last warning cutie 😌 dhyaan se daalo 💞";
+    }
+    else if(tries === 4){
+      errorMsg.textContent = "Hoooo ek bar aur try kar lo 😔🥺";
+    }
+    else {
+      errorMsg.textContent = "Sach me aap bhul gaye 😖😯😭";
     }
   }
-}
+  }
 
-let openGif = null;
 function toggleGif(container){
-  const gif = container.querySelector("img");
+  const gif = container.querySelector(".shayari-gif");
   if(openGif && openGif !== gif){
     openGif.style.display = "none";
   }
   gif.style.display = gif.style.display === "block" ? "none" : "block";
   openGif = gif.style.display === "block" ? gif : null;
 }
+
+/* Emoji Rain */
+const emojis = ["💖","😘","💋","😍"];
+setInterval(()=>{
+  const e = document.createElement("div");
+  e.className="emoji";
+  e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  e.style.left=Math.random()*100+"vw";
+  e.style.animationDuration=3+Math.random()*3+"s";
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),6000);
+},400);
 </script>
 
 </body>
