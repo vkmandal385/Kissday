@@ -99,7 +99,7 @@
     border: 3px solid #fff;
   }
 
-  /* Emoji floating */
+  /* Floating emojis */
   .emoji {
     position: fixed;
     font-size: 24px;
@@ -117,7 +117,7 @@
     padding: 50px 20px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
     max-width: 700px;
     margin: auto;
   }
@@ -128,6 +128,12 @@
     padding: 20px;
     border-radius: 15px;
     backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .shayari-container:hover {
+    background: rgba(255,255,255,0.2);
   }
 
   .shayari-text {
@@ -135,9 +141,11 @@
     margin-bottom: 15px;
   }
 
-  .shayari-container img {
+  .shayari-gif {
     width: 120px;
     height: auto;
+    display: none;
+    margin: auto;
     border-radius: 10px;
   }
 
@@ -164,29 +172,29 @@
 
   <div class="shayari-section">
 
-    <div class="shayari-container">
+    <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Tere honthon ki khamoshi, meri dhadkan ka raaz hai."</div>
-      <img src="shayari1.gif" alt="Shayari GIF 1">
+      <img src="shayari1.gif" alt="Shayari GIF 1" class="shayari-gif">
     </div>
 
-    <div class="shayari-container">
+    <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Ek chhota sa kiss, dil ke har kone ko choo jaye."</div>
-      <img src="shayari2.gif" alt="Shayari GIF 2">
+      <img src="shayari2.gif" alt="Shayari GIF 2" class="shayari-gif">
     </div>
 
-    <div class="shayari-container">
+    <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Kiss Day ke din, tumhari muskaan meri duniya hai."</div>
-      <img src="shayari3.gif" alt="Shayari GIF 3">
+      <img src="shayari3.gif" alt="Shayari GIF 3" class="shayari-gif">
     </div>
 
-    <div class="shayari-container">
+    <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Pyaar ka izhaar, ek pyara sa kiss ke saath."</div>
-      <img src="shayari4.gif" alt="Shayari GIF 4">
+      <img src="shayari4.gif" alt="Shayari GIF 4" class="shayari-gif">
     </div>
 
-    <div class="shayari-container">
+    <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Tere labon pe bas yahi dua, hamesha khush rahe tu."</div>
-      <img src="shayari5.gif" alt="Shayari GIF 5">
+      <img src="shayari5.gif" alt="Shayari GIF 5" class="shayari-gif">
     </div>
 
   </div>
@@ -222,6 +230,16 @@
     setTimeout(() => emoji.remove(), 6000);
   }
   setInterval(createEmoji, 400);
+
+  // Toggle GIF on shayari click
+  function toggleGif(container) {
+    const gif = container.querySelector('.shayari-gif');
+    if (gif.style.display === "none" || gif.style.display === "") {
+      gif.style.display = "block";
+    } else {
+      gif.style.display = "none";
+    }
+  }
 </script>
 
 </body>
