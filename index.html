@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Kiss Day 💋</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+
 <style>
   body, html {
     margin: 0;
@@ -17,10 +18,24 @@
     background-size: cover;
   }
 
+  /* SCREEN SHAKE */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+  }
+
+  .shake {
+    animation: shake 0.4s;
+  }
+
+  /* Password overlay */
   .password-container {
     position: fixed;
     top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,20 +70,18 @@
 
   .password-container button {
     padding: 10px 20px;
-    border-radius: 10px;
+    font-size: 1rem;
     border: none;
+    border-radius: 10px;
     background: #ff66b2;
-    color: white;
+    color: #fff;
     cursor: pointer;
-  }
-
-  .password-container button:hover {
-    background: #ff3385;
   }
 
   .error {
     color: #ffdddd;
     font-weight: bold;
+    margin-top: 10px;
   }
 
   .main-content {
@@ -85,7 +98,6 @@
     font-family: 'Pacifico', cursive;
     font-size: 3rem;
     color: #ffe6f0;
-    text-shadow: 2px 2px 10px #ff66b2;
   }
 
   .header img {
@@ -119,8 +131,15 @@
   }
 
   .touch-text {
+    color: #ffe6f0;
     font-weight: bold;
-    margin-bottom: 10px;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% { text-shadow: 0 0 5px #ff66b2; }
+    50% { text-shadow: 0 0 20px #ff66b2; }
+    100% { text-shadow: 0 0 5px #ff66b2; }
   }
 
   .shayari-gif-container img {
@@ -135,7 +154,9 @@
     font-size: 2rem;
     font-family: 'Pacifico', cursive;
     margin-top: 50px;
+    color: #ffe6f0;
   }
+
 </style>
 </head>
 <body>
@@ -143,15 +164,17 @@
 <div class="password-container" id="passwordContainer">
   <h1>Happy Kiss Day Cutie 💋</h1>
 
-  <p><strong>6 digit password: your datemonth + my datemonth</strong></p>
-  <p style="font-size:14px;opacity:0.8;">Only we know this password 😎</p>
+  <p><strong>Your datemonth + my datemonth</strong></p>
+  <p style="font-size:14px;opacity:0.8;">Only We know this password 😎</p>
 
   <input type="password" id="password" placeholder="Enter 6 digit password">
+  <br>
   <button onclick="checkPassword()">Unlock</button>
   <div class="error" id="errorMsg"></div>
 </div>
 
 <div class="main-content" id="mainContent">
+
   <div class="header">
     <h1>Happy Kiss Day 💋</h1>
     <img src="kiss.gif">
@@ -162,66 +185,76 @@
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Har din aapse pyaar krta hu, aur har din thoda thoda badhta ja raha hai✨💞"</div>
       <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container">
-        <img src="shayari1.gif" class="shayari-gif">
-      </div>
+      <div class="shayari-gif-container"><img src="shayari1.gif"></div>
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Bas Aap, Aapki Khushi aur ek pyaar sa kiss... aur kuch nhi chahiye ❤️"</div>
       <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container">
-        <img src="shayari2.gif" class="shayari-gif">
-      </div>
+      <div class="shayari-gif-container"><img src="shayari2.gif"></div>
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Kiss Day ke din, Aapki Happiness hi mera pura world hai 🌎🌍."</div>
       <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container">
-        <img src="shayari3.gif" class="shayari-gif">
-      </div>
+      <div class="shayari-gif-container"><img src="shayari3.gif"></div>
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
-      <div class="shayari-text">"Pyaar ka proposal, ek pyara sa kiss ke saath 😘"</div>
+      <div class="shayari-text">"Pyaar ka Purposal, Ek pyara sa kiss ke saath😘."</div>
       <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container">
-        <img src="shayari4.gif" class="shayari-gif">
-      </div>
+      <div class="shayari-gif-container"><img src="shayari4.gif"></div>
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
-      <div class="shayari-text">"Mere bas yahi dua, Aap hamesha khush rahe ☺️"</div>
+      <div class="shayari-text">"Mere bas yahi dua, Aap hamesha khush rahe☺️."</div>
       <div class="touch-text">Touch for gf🫵🏻</div>
-      <div class="shayari-gif-container">
-        <img src="shayari5.gif" class="shayari-gif">
-      </div>
+      <div class="shayari-gif-container"><img src="shayari5.gif"></div>
     </div>
 
   </div>
 
   <div class="end-message">
-    I ❤️ YOU BUBU 😘
+    I❤️YOU BUBU😘
   </div>
+
 </div>
 
 <script>
+let tries = 0;
+
 function checkPassword() {
   const input = document.getElementById('password').value;
+  const container = document.getElementById('passwordContainer');
+  const mainContent = document.getElementById('mainContent');
+  const errorMsg = document.getElementById('errorMsg');
+
   if(input === "134285") {
-    document.getElementById('passwordContainer').style.display = "none";
-    document.getElementById('mainContent').style.display = "block";
+    container.style.display = "none";
+    mainContent.style.display = "block";
   } else {
-    document.getElementById('errorMsg').textContent = "Wrong password! Try again 💔";
+    tries++;
+    container.classList.add("shake");
+    setTimeout(()=>container.classList.remove("shake"),400);
+
+    if(tries < 3){
+      errorMsg.textContent = "Wrong password! Try again 💔";
+    } else {
+      errorMsg.textContent = "Areee itna bhi nahi yaad? 😭 Last chance baby 💋";
+    }
   }
 }
 
-function toggleGif(container) {
-  const gif = container.querySelector('.shayari-gif');
+let openGif = null;
+function toggleGif(container){
+  const gif = container.querySelector("img");
+  if(openGif && openGif !== gif){
+    openGif.style.display = "none";
+  }
   gif.style.display = gif.style.display === "block" ? "none" : "block";
+  openGif = gif.style.display === "block" ? gif : null;
 }
 </script>
 
 </body>
-  </html>
+</html>
