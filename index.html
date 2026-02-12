@@ -138,7 +138,14 @@
 
   .shayari-text {
     font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .touch-text {
+    color: #ffe6f0;
+    font-weight: bold;
     margin-bottom: 10px;
+    font-size: 1rem;
   }
 
   .shayari-gif-container {
@@ -147,7 +154,7 @@
   }
 
   .shayari-gif-container img {
-    width: 200px; /* GIF size bada */
+    width: 250px; /* GIF bigger */
     height: auto;
     display: none;
     border-radius: 10px;
@@ -169,11 +176,12 @@
     100% {transform: translate(-10px,-40px) scale(0.5); opacity:0;}
   }
 
-  .touch-text {
+  .end-message {
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    margin-top: 50px;
     color: #ffe6f0;
-    font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 1rem;
   }
 
 </style>
@@ -240,9 +248,15 @@
     </div>
 
   </div>
+
+  <div class="end-message">
+    I ❤️YOU CUTIE 😘
+  </div>
 </div>
 
 <script>
+  let openGif = null; // Track currently open GIF
+
   // Password check
   function checkPassword() {
     const input = document.getElementById('password').value;
@@ -273,24 +287,32 @@
   }
   setInterval(createEmoji, 400);
 
-  // Toggle GIF + sparkle
+  // Toggle GIF + sparkles
   function toggleGif(container) {
     const gif = container.querySelector('.shayari-gif');
+
+    // Hide previously open GIF
+    if(openGif && openGif !== gif) {
+      openGif.style.display = "none";
+    }
+
     if (gif.style.display === "none" || gif.style.display === "") {
       gif.style.display = "block";
       createSparkles(container);
+      openGif = gif;
     } else {
       gif.style.display = "none";
+      openGif = null;
     }
   }
 
   // Sparkles
   function createSparkles(container) {
-    for(let i=0;i<15;i++){
+    for(let i=0;i<20;i++){
       const sparkle = document.createElement('div');
       sparkle.classList.add('sparkle');
-      sparkle.style.left = Math.random()*180+'px';
-      sparkle.style.top = Math.random()*(-20)+'px';
+      sparkle.style.left = Math.random()*230+'px';
+      sparkle.style.top = Math.random()*(-30)+'px';
       container.querySelector('.shayari-gif-container').appendChild(sparkle);
       setTimeout(() => sparkle.remove(), 1000);
     }
