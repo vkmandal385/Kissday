@@ -117,7 +117,7 @@
     padding: 50px 20px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
     max-width: 700px;
     margin: auto;
   }
@@ -138,15 +138,42 @@
 
   .shayari-text {
     font-size: 1.2rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
-  .shayari-gif {
-    width: 120px;
+  .shayari-gif-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .shayari-gif-container img {
+    width: 200px; /* GIF size bada */
     height: auto;
     display: none;
-    margin: auto;
     border-radius: 10px;
+  }
+
+  .sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: gold;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleAnim 1s linear infinite;
+  }
+
+  @keyframes sparkleAnim {
+    0% {transform: translate(0,0) scale(0.5); opacity:1;}
+    50% {transform: translate(10px,-20px) scale(1); opacity:0.7;}
+    100% {transform: translate(-10px,-40px) scale(0.5); opacity:0;}
+  }
+
+  .touch-text {
+    color: #ffe6f0;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1rem;
   }
 
 </style>
@@ -174,27 +201,42 @@
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Tere honthon ki khamoshi, meri dhadkan ka raaz hai."</div>
-      <img src="shayari1.gif" alt="Shayari GIF 1" class="shayari-gif">
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="shayari-gif-container">
+        <img src="shayari1.gif" alt="Shayari GIF 1" class="shayari-gif">
+      </div>
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Ek chhota sa kiss, dil ke har kone ko choo jaye."</div>
-      <img src="shayari2.gif" alt="Shayari GIF 2" class="shayari-gif">
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="shayari-gif-container">
+        <img src="shayari2.gif" alt="Shayari GIF 2" class="shayari-gif">
+      </div>
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Kiss Day ke din, tumhari muskaan meri duniya hai."</div>
-      <img src="shayari3.gif" alt="Shayari GIF 3" class="shayari-gif">
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="shayari-gif-container">
+        <img src="shayari3.gif" alt="Shayari GIF 3" class="shayari-gif">
+      </div>
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Pyaar ka izhaar, ek pyara sa kiss ke saath."</div>
-      <img src="shayari4.gif" alt="Shayari GIF 4" class="shayari-gif">
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="shayari-gif-container">
+        <img src="shayari4.gif" alt="Shayari GIF 4" class="shayari-gif">
+      </div>
     </div>
 
     <div class="shayari-container" onclick="toggleGif(this)">
       <div class="shayari-text">"Tere labon pe bas yahi dua, hamesha khush rahe tu."</div>
-      <img src="shayari5.gif" alt="Shayari GIF 5" class="shayari-gif">
+      <div class="touch-text">Touch shayari 🫵🏻</div>
+      <div class="shayari-gif-container">
+        <img src="shayari5.gif" alt="Shayari GIF 5" class="shayari-gif">
+      </div>
     </div>
 
   </div>
@@ -231,15 +273,29 @@
   }
   setInterval(createEmoji, 400);
 
-  // Toggle GIF on shayari click
+  // Toggle GIF + sparkle
   function toggleGif(container) {
     const gif = container.querySelector('.shayari-gif');
     if (gif.style.display === "none" || gif.style.display === "") {
       gif.style.display = "block";
+      createSparkles(container);
     } else {
       gif.style.display = "none";
     }
   }
+
+  // Sparkles
+  function createSparkles(container) {
+    for(let i=0;i<15;i++){
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random()*180+'px';
+      sparkle.style.top = Math.random()*(-20)+'px';
+      container.querySelector('.shayari-gif-container').appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1000);
+    }
+  }
+
 </script>
 
 </body>
