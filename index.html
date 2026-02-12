@@ -99,7 +99,7 @@
     height: auto;
     border-radius: 15px;
     border: 3px solid #fff;
-    box-shadow: 0 0 20px #ff66b2;
+    box-shadow: 0 0 30px #ff66b2;
   }
 
   /* Floating emojis */
@@ -138,7 +138,7 @@
 
   .shayari-container:hover {
     background: rgba(255,255,255,0.2);
-    box-shadow: 0 0 20px rgba(255,182,193,0.6);
+    box-shadow: 0 0 25px rgba(255,182,193,0.6);
   }
 
   .shayari-text {
@@ -146,11 +146,19 @@
     margin-bottom: 5px;
   }
 
+  /* Touch text glow animation */
   .touch-text {
     color: #ffe6f0;
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 1rem;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% { text-shadow: 0 0 5px #ff66b2, 0 0 10px #ff66b2; }
+    50% { text-shadow: 0 0 20px #ff66b2, 0 0 30px #ff66b2; }
+    100% { text-shadow: 0 0 5px #ff66b2, 0 0 10px #ff66b2; }
   }
 
   .shayari-gif-container {
@@ -159,11 +167,11 @@
   }
 
   .shayari-gif-container img {
-    width: 250px; /* GIF bigger */
+    width: 300px; /* Bigger GIF */
     height: auto;
     display: none;
     border-radius: 10px;
-    box-shadow: 0 0 20px #ff66b2;
+    box-shadow: 0 0 30px #ff66b2;
     transition: 0.3s;
   }
 
@@ -257,12 +265,12 @@
   </div>
 
   <div class="end-message">
-    I❤️YOU CUTIE 😘
+    I ❤️YOU CUTIE 😘
   </div>
 </div>
 
 <script>
-  let openGif = null; // Track currently open GIF
+  let openGif = null; 
   const colors = ["gold","pink","purple","cyan"];
 
   // Password check
@@ -299,7 +307,6 @@
   function toggleGif(container) {
     const gif = container.querySelector('.shayari-gif');
 
-    // Hide previously open GIF
     if(openGif && openGif !== gif) {
       openGif.style.display = "none";
     }
@@ -307,14 +314,16 @@
     if (gif.style.display === "none" || gif.style.display === "") {
       gif.style.display = "block";
       createSparkles(container);
+      startContinuousSparkles(container); // continuous sparkles
       openGif = gif;
     } else {
       gif.style.display = "none";
+      stopContinuousSparkles(container);
       openGif = null;
     }
   }
 
-  // Sparkles around GIF
+  // One-time sparkles
   function createSparkles(container) {
     const gifContainer = container.querySelector('.shayari-gif-container');
     for(let i=0;i<25;i++){
@@ -330,7 +339,30 @@
     }
   }
 
+  // Continuous sparkles
+  const sparkleIntervals = new Map();
+  function startContinuousSparkles(container){
+    const gifContainer = container.querySelector('.shayari-gif-container');
+    const interval = setInterval(() => {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random()*300+'px';
+      sparkle.style.top = Math.random()*(-40)+'px';
+      sparkle.style.background = colors[Math.floor(Math.random()*colors.length)];
+      sparkle.style.width = 4 + Math.random()*4 + 'px';
+      sparkle.style.height = 4 + Math.random()*4 + 'px';
+      gifContainer.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1200);
+    }, 200);
+    sparkleIntervals.set(container, interval);
+  }
+
+  function stopContinuousSparkles(container){
+    clearInterval(sparkleIntervals.get(container));
+    sparkleIntervals.delete(container);
+  }
+
 </script>
 
 </body>
-  </html>
+</html>
